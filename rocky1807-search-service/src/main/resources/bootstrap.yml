@@ -1,0 +1,36 @@
+
+#微服务启动参数
+spring:
+  application:
+    name: search-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:      #配置注册中心
+        server-addr: 192.168.112.85:8848
+        namespace: c6314465-60db-4443-a147-be768536ad30
+        group: ${group.name}
+      config:         #配置中心
+        server-addr: 192.168.112.85:8848
+        namespace: c6314465-60db-4443-a147-be768536ad30
+        group: ${group.name}
+        file-extension: properties
+        shared-configs:
+          - dataId: spring-http-config.properties
+            group: ${group.name}
+  profiles:           # 激活配置环境
+    active: dev
+
+# 组名称
+group:
+  name: rocky1807-group
+
+
+# swagger 文档配置
+swagger:
+  enable: true
+  title: ""
+  description: ""
+  version: 1.0.0
+  base-package: com.rocky1807

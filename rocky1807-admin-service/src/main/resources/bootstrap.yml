@@ -1,0 +1,53 @@
+#微服务配置
+spring:
+  application:
+    name: admin-service
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.112.85:8848
+        group: ${dev.group}
+        namespace: c6314465-60db-4443-a147-be768536ad30
+      config:
+        server-addr: 192.168.112.85:8848
+        group: ${dev.group}
+        namespace: c6314465-60db-4443-a147-be768536ad30
+        file-extension: properties
+        shared-configs:
+          - dataId: mp-config.properties
+            group: ${dev.group}
+          - dataId: spring-http-config.properties
+            group: ${dev.group}
+          - dataId: spring-druid-config.properties
+            group: ${dev.group}
+          - dataId: feign-config.properties
+            group: ${dev.group}
+          - dataId: ribbon-config.properties
+            group: ${dev.group}
+          - dataId: rabbitmq-config.properties
+            group: ${dev.group}
+#    sentinel:
+#      transport:
+#        dashboard:
+
+  profiles:
+    active: dev
+
+dev:
+  group: rocky1807-group
+
+# 日志文件配置路径
+logging:
+  config: classpath:log4j2-dev.xml
+
+
+# swagger 文档配置
+swagger:
+  title: ""
+  description: ""
+  base-package: com.rocky1807.content
+  enabled: true
+  version: 1.0.0

@@ -1,0 +1,33 @@
+#微服务启动参数
+spring:
+  application:
+    name: gateway-server
+  main:
+    allow-bean-definition-overriding: true # Spring Boot 2.1 需要设定
+  cloud:
+    nacos:
+      discovery:      #配置注册中心
+        server-addr: 192.168.112.85:8848
+        namespace: c6314465-60db-4443-a147-be768536ad30
+        group: ${group.name}
+      config:         #配置中心
+        server-addr: 192.168.112.85:8848
+        namespace: c6314465-60db-4443-a147-be768536ad30
+        group: ${group.name}
+        file-extension: properties
+        shared-configs:
+          - dataId: feign-config.properties
+            group: ${group.name}
+          - dataId: ribbon-config.properties
+            group: ${group.name}
+  profiles:           # 激活配置环境
+    active: dev
+
+# 组名称
+group:
+  name: rocky1807-group
+
+
+# 日志文件配置路径
+logging:
+  config: classpath:log4j2-dev.xml
