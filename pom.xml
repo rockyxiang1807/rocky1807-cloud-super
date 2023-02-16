@@ -23,7 +23,6 @@
         <module>rocky1807-gateway</module>
         <module>rocky1807-search-service</module>
         <module>rocky1807-user-service</module>
-        <module>rocky1807-api</module>
         <module>rocky1807-system-service</module>
     </modules>
 

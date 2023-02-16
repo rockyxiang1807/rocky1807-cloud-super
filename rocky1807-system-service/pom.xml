@@ -13,7 +13,7 @@
 
         <dependency>
             <groupId>com.rocky1807</groupId>
-            <artifactId>rocky1807-api</artifactId>
+            <artifactId>rocky1807-common</artifactId>
             <version>${project.version}</version>
         </dependency>
 
